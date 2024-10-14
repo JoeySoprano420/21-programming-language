@@ -1,0 +1,74 @@
+>> Initialize and Declare Variables
+~| var:int [ x = 10 ], var:bool [ flag = true ] |~
+
+>> Perform Arithmetic Operation (Assembly-Style)
+~| eax <- 5 |~
+~| add eax, x |~
+~| store eax -> result |~
+
+>> Perform Contextual Check with BLACKJACK Logic (21 States)
+<IF:blackjack> x :IS: [greater than 5 and less than 15] 
+     @| OUTPUT "x is in range" |@
+<ELIF> x :IS NOT: [5, 15] 
+     @| OUTPUT "x is outside range" |@
+<ELIF> x :IS BOTH: [greater than 5 and divisible by 2] 
+     @| OUTPUT "x is both in range and even" |@
+<ELIF> x :IS NEITHER: [even, divisible by 5]
+     @| OUTPUT "x is neither even nor divisible by 5" |@
+<ELIF> x :IS NEUTRAL:
+     @| OUTPUT "x is neutral, no significant conditions" |@
+<ELIF> x :IS FLEXIBLE:
+     @| OUTPUT "x can adapt based on conditions" |@
+<ELIF> x :IS DEPENDENT: [flag == true]
+     @| OUTPUT "x depends on flag, which is true" |@
+<ELIF> result :COMPLETE: 
+     @| OUTPUT "The operation completed successfully." |@
+<ELIF> result :MOST: 
+     @| OUTPUT "The operation is mostly correct but may need adjustments." |@
+<ELIF> flag :IRRELEVANT: 
+     @| OUTPUT "The flag is irrelevant to this condition." |@
+<ELIF> input_value :SUSPICIOUS: 
+     @| OUTPUT "Input seems suspicious, recheck data." |@
+<ELIF> x :INCOMPATIBLE: [current_state == standby]
+     @| OUTPUT "x is incompatible in standby mode." |@
+<ELIF> system_mode :ON:
+     @| OUTPUT "The system is currently ON." |@
+<ELIF> system_mode :OFF:
+     @| OUTPUT "The system is OFF." |@
+<ELIF> device_status :STANDBY:
+     @| OUTPUT "Device is in standby mode." |@
+<ELIF> process_flow :EXCEPTION:
+     @| OUTPUT "An exception occurred in the process flow." |@
+<ELIF> x :CUSTOM: [user_defined_condition]
+     @| OUTPUT "Custom condition met for x." |@
+<ELIF> response :UNRECOGNIZED:
+     @| OUTPUT "The system cannot recognize the current input." |@
+<ELIF> value :POTENTIALLY: [incomplete, needs verification]
+     @| OUTPUT "Value potentially valid but requires further verification." |@
+<ELIF> timer :PERIODIC:
+     @| OUTPUT "This check happens periodically." |@
+<ELIF> memory_status :RANDOM:
+     @| OUTPUT "Random condition triggered based on memory or security constraints." |@
+<ELSE>
+     @| OUTPUT "No matching condition found." |@
+
+>> Variable Simulation and Mutation
+~| change x -> 20, y -> 25 |~
+
+>> Logic Expression with BLACKJACK (21-State) Logic
+<IF:blackjack> x :IS FLEXIBLE: [greater than 10 and less than 30] && flag == true 
+     @| OUTPUT "x is flexible and conditions are true." |@
+<ELIF> x :INCOMPATIBLE: [operation_mode == 0]
+     @| OUTPUT "x cannot process in current mode." |@
+
+>> Prompt for User Input
+<ASK> "Please enter a value:" 
+    -> store input_value
+@| OUTPUT "You entered: " + input_value |@
+
+>> Context-Aware Assembly Operation
+~| eax <- 5, x -> eax * 2 |~
+~| if eax < 20: store eax -> new_result |~
+@| OUTPUT "Result after operation: " + new_result |@
+
+<<END CODE>>
