@@ -13,3 +13,16 @@ class Logger:
 
     def log_warning(self, message):
         logging.warning(message)
+
+
+class AdvancedErrorHandler(ErrorHandler):
+    def bait_and_switch(self, faulty_logic):
+        try:
+            # Attempt to execute logic
+            self.execute_logic(faulty_logic)
+        except Exception as e:
+            self.handle_error(e)
+
+    def type_check(self, value, expected_type):
+        if not isinstance(value, expected_type):
+            raise TypeError(f"Expected {expected_type}, got {type(value)}")
