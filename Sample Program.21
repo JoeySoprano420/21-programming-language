@@ -1,7 +1,15 @@
-~| var:int [ x = 10 ] |~
-<IF:blackjack> x :IS: [greater than 5]
-    @| OUTPUT "x is greater than 5" |@
-<ELIF> x :IS NOT: [greater than 15]
-    @| OUTPUT "x is not greater than 15" |@
-<ELSE>
-    @| OUTPUT "x is either 5 or less than 5" |@
+~| Evaluate if x is true: |~
+evaluate(1, x) 
+# Output: True or False
+
+~| Check if x is both 5 and greater than 0: |~
+evaluate(3, x == 5, x > 0) 
+# Output: True or False
+
+~| Determine if x is neutral: |~
+evaluate(5, x) 
+# Output: True if x is None, else False
+
+~| Check if flag is not true: |~
+evaluate(2, flag) 
+# Output: True or False
