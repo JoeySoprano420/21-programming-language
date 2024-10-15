@@ -1,0 +1,7 @@
+~| var:int [ x = 10 ] |~
+<IF:blackjack> x :IS: [greater than 5]
+    @| OUTPUT "x is greater than 5" |@
+<ELIF> x :IS NOT: [greater than 15]
+    @| OUTPUT "x is not greater than 15" |@
+<ELSE>
+    @| OUTPUT "x is either 5 or less than 5" |@
