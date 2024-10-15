@@ -1,0 +1,37 @@
+// --------------------- 8. Additional Machine Learning Algorithms --------------------- 
+
+class RandomForest:
+    init(n_trees):
+        this.n_trees = n_trees
+        this.trees = []
+
+    fit(X, y):
+        for _ in range(this.n_trees):
+            sample_X, sample_y = bootstrap_sample(X, y)
+            tree = DecisionTree()
+            tree.fit(sample_X, sample_y)
+            this.trees.append(tree)
+
+    predict(X):
+        predictions = [tree.predict(X) for tree in this.trees]
+        return majority_vote(predictions)
+
+class SupportVectorMachine:
+    init():
+        this.model = SVC() // Using an existing SVM library
+
+    fit(X, y):
+        this.model.fit(X, y)
+
+    predict(X):
+        return this.model.predict(X)
+
+class NeuralNetwork:
+    init(layers):
+        this.model = create_neural_network(layers)
+
+    fit(X, y):
+        this.model.fit(X, y)
+
+    predict(X):
+        return this.model.predict(X)
