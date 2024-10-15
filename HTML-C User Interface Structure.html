@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ML-Plus User Interface</title>
+    <script src="app.js"></script> <!-- Link to JavaScript file for interactions -->
+</head>
+<body>
+    <h1>ML-Plus User Interface</h1>
+    
+    <label for="key">Enter Key:</label>
+    <input type="text" id="key" name="key"><br><br>
+
+    <label for="value">Enter Value:</label>
+    <input type="text" id="value" name="value"><br><br>
+
+    <button onclick="insertData()">Insert Data</button>
+    <button onclick="queryData()">Query Data</button>
+
+    <h2>Results:</h2>
+    <pre id="resultArea"></pre>
+
+    <script>
+        function insertData() {
+            const key = document.getElementById('key').value;
+            const value = document.getElementById('value').value;
+
+            // AJAX call to insert data
+            fetch('/api/data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ key, value })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('resultArea').innerText += data.message + '\n';
+            });
+        }
+
+        function queryData() {
+            const key = document.getElementById('key').value;
+
+            // AJAX call to query data
+            fetch(`/api/data?key=${key}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('resultArea').innerText += data[key] || 'No data found.' + '\n';
+            });
+        }
+    </script>
+</body>
+</html>
