@@ -1,6 +1,6 @@
 import ply.yacc as yacc
 
-# Define precedence
+# Define precedence (not used here but reserved for future use)
 precedence = ()
 
 def p_statement_var_decl(p):
@@ -28,7 +28,7 @@ def p_condition_check(p):
     p[0] = ('range', p[2], p[4])
 
 def p_action(p):
-    '''action : '@|' OUTPUT STRING '|@' '''
+    '''action : '@|' OUTPUT IDENTIFIER '|@' '''
     p[0] = ('output', p[3])
 
 parser = yacc.yacc()
